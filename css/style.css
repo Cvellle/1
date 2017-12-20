@@ -298,9 +298,10 @@ input.add {
   background-color:black;
   color:white;
   border:1px solid blue;
-  border-radius:20%;
+  border-radius:0.5rem;
   font: 15px bold, sans-serif;
   font-weight:700;
+  transition:0.3s;
 }
 
 input.add:focus {
@@ -312,7 +313,8 @@ input.add:hover {
   background-color:blue;
   color:white;
   border:1px solid blue;
-  border-radius:20%;
+  transition:0.3s;
+  border-radius:0px;
 }
 
 input.add:active {
