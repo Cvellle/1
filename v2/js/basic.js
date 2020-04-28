@@ -4,40 +4,12 @@ const rots = document.querySelectorAll('.rot');
 const elsdiv = document.querySelectorAll('.topdiv');
 var move = false, x, y, posx, posy, static = true;
 
-onmousedown = function (event, i) {
-  event.stopPropagation();
-  if (!event.target.matches('input, .triangle-with-shadow, .triangle-with-shadow2, .trdiv2, .blocked, .topdiv.squarediv')) {
-    move = true;
-    this.firstElementChild.nextElementSibling.nextElementSibling.value = Number(this.firstElementChild.nextElementSibling.nextElementSibling.value) + Number(100);
-    this.style.zIndex = Number(this.style.zIndex) + Number(1);
-  }
+onmousemove = function () {
+  $(".topdiv").draggable();
 };
 
-onmousemove = function (e) {
-  e.stopPropagation();
-  on = true;
-  if (!e.target.matches('.trdiv2,.tr2,.controls')) {
-    if (move) {
-      if (static) {
-        x = e.offsetX;
-        y = e.offsetY;
-        static = false;
-      }
-      posx = (e.pageX - x) - 27;
-      posy = (e.pageY - y);
-      posx += 20;
-      this.style.left = posx + 'px';
-      this.style.top = posy + 'px';
-    }
-  }
-};
-
-onmouseup = function () {
-  move = false;
-  static = true;
-  on = false;
-  this.firstElementChild.nextElementSibling.nextElementSibling.value = Number(this.firstElementChild.nextElementSibling.nextElementSibling.value) - Number(100);
-  this.style.zIndex = Number(this.style.zIndex) - Number(1);
+onmousedown = function () {
+  $(".topdiv").draggable();
 };
 
 onhov = function () {
