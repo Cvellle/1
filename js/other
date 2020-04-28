@@ -1,0 +1,17 @@
+/* Z PLUS AND Z MINUS */
+// const zpl = document.querySelectorAll('.zpl');
+// zpl.forEach(zp => zp.addEventListener('click', plz));
+
+// const zmin = document.querySelectorAll('.zmin');
+// zmin.forEach(zmtr => zmtr.addEventListener('click', minz));
+
+// function minz () {
+  
+// this.previousElementSibling.previousElementSibling.value = Number(this.previousElementSibling.previousElementSibling.value)-1;   
+// this.parentNode.style.zIndex=Number(this.parentNode.style.zIndex)-1;
+// }
+
+// function plz () {
+// this.previousElementSibling.value = Number(this.previousElementSibling.value)+1; 
+// this.parentNode.style.zIndex=Number(this.parentNode.style.zIndex)+1;
+// }  

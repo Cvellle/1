@@ -1,115 +1,141 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	
-<head>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>Drag</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/temp/scripts/Vendor.js"></script>
+    <script src="js/svg.js"></script>
+    <script src="js/photoslider.js"></script>
+    <script src="js/animation.js"></script>
+  </head>
 
-         <meta http-equiv="X-UA-Compatible" content="IE=9">
-    	 <title>Drag</title>
-         <meta charset="utf-8" />
-   	 <meta name="viewport" content="width=device-width, initial-scale=1" />
-   	 <link rel="stylesheet" href="css/style.css" media="screen" />
-   	 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-   	 <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-   	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   	 <script src="/temp/scripts/Vendor.js"></script>
-	 <script src="js/svg.js"></script>
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>	
-	 <script src="js/photoslider.js"></script>
-	 <script src="js/animation.js"></script>
-   
-</head>
-
- 
-
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-
-<body>
-  
-  <div class="menu">
-  
-     <img id="rimg" class="rotimg rot blocked"  style="float:right" src="images/rotate.png"/>
-     <button class="help" onclick="showhelp();">Help</button>
-	 
-     <div id="myNav" class="helpscreen">
-       <div class="helpscreen-content">
-        <a href="javascript:void(0)" class="closebtn" onclick="closehelp()">&times;</a>
-	<p>1.<u>"Double click under"</u> element - on / off controls.</p>
-        <p>2.Then <u>rotate</u> element - <u>move blue circle.</u></p>
-        <p>3.Open shape controls with <u>Sh button</u> on the right.</p>
-		<p>4.Drag element - <u>under it</u>.</p>
-       </div>
-     </div>
-	
-     <div>
+  <body>
+    <div class="menu">
+      <img
+        id="rimg"
+        class="rotimg rot blocked"
+        style="float: right;"
+        src="images/rotate.png"
+      />
+      <button class="help" onclick="showhelp();">Help</button>
+      <div id="myNav" class="helpscreen">
+        <div class="helpscreen-content">
+          <a href="javascript:void(0)" class="closebtn" onclick="closehelp()"
+            >&times;</a
+          >
+          <p>1.<u>"Double click under"</u> element - on / off controls.</p>
+          <p>2.Then <u>rotate</u> element - <u>move blue circle.</u></p>
+          <p>3.Open shape controls with <u>Sh button</u> on the right.</p>
+          <p>4.Drag element - <u>under it</u>.</p>
+        </div>
+      </div>
+      <div>
         <div class="b1descr"><p>Change background color</p></div>
-        <input class="base1 inp1" id="base1" type="color" value="#fff600" style="top:px"/ onchange="">
+        <input class="base1 inp1" id="base1" type="color" value="#fff600"
+        style="top:px"/ onchange="">
         <div class="b2descr"><p>Toggle with this color</p></div>
-        <input class="base2 inp2" id="base2" type="color" value="#fff600" style="top:px"/>
+        <input
+          class="base2 inp2"
+          id="base2"
+          type="color"
+          value="#fff600"
+          style="top: px;"
+        />
         <button class="stoptog" onclick="stopToggling()">Stop</button>
         <button class="resetcol" onclick="resetCol()">Reset Color</button>
-     </div>
-	  
-  </div>
-  
-  <div class="coverup">
-  </div>
-  
-  <div class="addel">
-	<p>Add elements</p>
-  </div>
+      </div>
+    </div>
+    <div class="coverup"></div>
+    <div class="addel">
+      <p>Add elements</p>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <input
+            type="button"
+            class="addrect1 add"
+            value="rect"
+            name="rect"
+            style="width: 40px;"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            class="addtr1 add"
+            value="tri"
+            name="triangle"
+            style="width: 40px;"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            class="cir1 add"
+            value="cir"
+            name="circle"
+            style="width: 40px;"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            class="ell1 add"
+            value="ell"
+            name="ellipse"
+            style="width: 40px;"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            class="line1 add"
+            value="line"
+            name="line"
+            style="width: 40px;"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="rect" class="addshapes inl" style="float: left;"></ul>
+        </td>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="tr" class="addshapes inl" style="float: left;"></ul>
+        </td>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="cir" class="addshapes inl" style="float: left;"></ul>
+        </td>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="el" class="addshapes inl" style="float: left;"></ul>
+        </td>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="lin" class="addshapes inl" style="float: left;"></ul>
+        </td>
+        <td style="hight: 100px; top: 100px; position: ;">
+          <ul id="cur" class="addshapes inl" style="float: left;"></ul>
+        </td>
+      </tr>
+    </table>
+    <div class="helpdown">
+      <p>
+        1.<u>"Double click" under</u> element - on/off controls. 2.Then
+        <u>rotate</u> element - <u>move blue circle.</u> 3.Drag element -
+        <u>under it</u>. 4.Open shape controls with <u>Sh button</u> on the
+        right.
+      </p>
+    </div>
 
-  <table>
-    
-    <tr>
-     
-      <td>  
-        <input type="button" class="addrect1 add" value="rect" name="rect" style="width:40px;"/>
-      </td>
-      <td>
-        <input type="button" class="addtr1 add" value="tri" name="triangle" style="width:40px"/>       
-      </td>   
-      <td>
-        <input type="button" class="cir1 add" value="cir" name="circle" style="width:40px">
-      </td>    
-      <td>
-        <input type="button" class="ell1 add" value="ell" name="ellipse" style="width:40px"> 
-      </td>   
-      <td>
-        <input type="button" class="line1 add" value="line" name="line" style="width:40px">   
-      </td>   
-    </tr>
-      
-    <tr>
-      <td style="hight:100px;top:100px;position:;"><ul id="rect" class="addshapes inl" style="float:left;"></ul></td>
-      <td style="hight:100px;top:100px;position:;"><ul id="tr" class="addshapes inl" style="float:left;;"></ul></td> 
-      <td style="hight:100px;top:100px;position:;"><ul id="cir" class="addshapes inl" style="float:left;"></ul></td>
-      <td style="hight:100px;top:100px;position:;"><ul id="el" class="addshapes inl" style="float:left;"></ul></td>
-      <td style="hight:100px;top:100px;position:;"><ul id="lin" class="addshapes inl" style="float:left;"></ul></td> 
-      <td style="hight:100px;top:100px;position:;"><ul id="cur" class="addshapes inl" style="float:left;"></ul></td>  
-    </tr>
-
-  </table>              
-
-  <div class="helpdown">
-     <p>1.<u>"Double click" under</u> element - on/off controls.
-     2.Then <u>rotate</u> element - <u>move blue circle.</u> 
-     3.Drag element - <u>under it</u>.
-     4.Open shape controls with <u>Sh button</u> on the right.</p>
-  </div>
-
-
-	
-<script src="js/basic.js"></script>
-	
-</body>
-
-
+    <script src="js/basic.js"></script>
+    <script src="js/rectangle.js"></script>
+    <script src="js/triangle.js"></script>
+    <script src="js/circle.js"></script>
+    <script src="js/ellipse.js"></script>
+    <script src="js/line.js"></script>
+  </body>
 </html>
-
-
-  
-
-
