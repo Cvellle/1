@@ -622,7 +622,6 @@ input[type=range]:focus {
   border-radius: 50%;
   border: 0px solid black;
   background: gold;
-  /* BurlyWood */
   color: white;
   padding-left: 4px;
 }
